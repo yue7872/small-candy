@@ -1158,37 +1158,6 @@
   resolved "https://mirrors.tencent.com/npm/@dcloudio/uni-i18n/-/uni-i18n-3.0.0-alpha-3070720230316001.tgz#126d0af1c0a63daae3554de9880ecb45d7249314"
   integrity sha512-/FJfrQWGRq+7Bn+EscDTiJNsPKdELi79rII0OToNCWg+QHscsGlwdx5EoH1sWQHEM80sv0g8STwDgro6O1nzBA==
 
-"@dcloudio/uni-mp-alipay@3.0.0-alpha-3070720230316001":
-  version "3.0.0-alpha-3070720230316001"
-  resolved "https://mirrors.tencent.com/npm/@dcloudio/uni-mp-alipay/-/uni-mp-alipay-3.0.0-alpha-3070720230316001.tgz#093af1397c3ffbc7900d4be19ccea61a2865598d"
-  integrity sha512-FNDFLOHO0fneErrVR2lKZCKrCaMyGLkDhQHxLUF2HoCYn7bedu1AoeYw322B4m4C+rfAt0sZyf52F3EYwRgjSA==
-  dependencies:
-    "@dcloudio/uni-cli-shared" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-vite" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-vue" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-shared" "3.0.0-alpha-3070720230316001"
-    "@vue/compiler-core" "3.2.47"
-    "@vue/shared" "3.2.47"
-
-"@dcloudio/uni-mp-baidu@3.0.0-alpha-3070720230316001":
-  version "3.0.0-alpha-3070720230316001"
-  resolved "https://mirrors.tencent.com/npm/@dcloudio/uni-mp-baidu/-/uni-mp-baidu-3.0.0-alpha-3070720230316001.tgz#2b46132702f6f590091648862e8b89468c1f3eb6"
-  integrity sha512-7jj7Vww3oAqpysca0WZdm75cvMW1slXnKfm3M1iUV6Hv2eX85Fe/p4UR6g8FE8fgmbO2rnQdujYWZ2Y0q09xqg==
-  dependencies:
-    "@dcloudio/uni-cli-shared" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-compiler" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-vite" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-vue" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-weixin" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-shared" "3.0.0-alpha-3070720230316001"
-    "@vue/compiler-core" "3.2.47"
-    "@vue/shared" "3.2.47"
-    jimp "^0.10.1"
-    licia "^1.29.0"
-    qrcode-reader "^1.0.4"
-    qrcode-terminal "^0.12.0"
-    ws "^8.4.2"
-
 "@dcloudio/uni-mp-compiler@3.0.0-alpha-3070720230316001":
   version "3.0.0-alpha-3070720230316001"
   resolved "https://mirrors.tencent.com/npm/@dcloudio/uni-mp-compiler/-/uni-mp-compiler-3.0.0-alpha-3070720230316001.tgz#3e4e6fa9c00bd936e9a0010ba415003da3872dd8"
@@ -1203,71 +1172,6 @@
     "@vue/compiler-dom" "3.2.47"
     "@vue/shared" "3.2.47"
     estree-walker "^2.0.2"
-
-"@dcloudio/uni-mp-jd@3.0.0-alpha-3070720230316001":
-  version "3.0.0-alpha-3070720230316001"
-  resolved "http://r.tnpm.oa.com/@dcloudio%2funi-mp-jd/-/uni-mp-jd-3.0.0-alpha-3070720230316001.tgz#2aa77e12e911e4c317291daf109f302a25dfedd3"
-  integrity sha512-fF6nfzP29XBXqWKR81JgV5Zurs4rDH2VfNPr4/NVwAtgdXSFHbKEZ4txcRrMmiG9/cDEHwz0XxuREtjlyNbwzw==
-  dependencies:
-    "@dcloudio/uni-cli-shared" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-compiler" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-vite" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-vue" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-shared" "3.0.0-alpha-3070720230316001"
-    "@vue/shared" "3.2.47"
-
-"@dcloudio/uni-mp-kuaishou@3.0.0-alpha-3070720230316001":
-  version "3.0.0-alpha-3070720230316001"
-  resolved "https://mirrors.tencent.com/npm/@dcloudio/uni-mp-kuaishou/-/uni-mp-kuaishou-3.0.0-alpha-3070720230316001.tgz#fe01ad119ca4980922405e37f655d29b734873a0"
-  integrity sha512-bUjVYu84Cw+cPXx2bBRlG3cdwnDSXIQzGbI9GmNfaUmXp0hFjeMSLwvD83dCm86swvkgZQEaH6zau86K2j6hwg==
-  dependencies:
-    "@dcloudio/uni-cli-shared" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-compiler" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-vite" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-vue" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-weixin" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-shared" "3.0.0-alpha-3070720230316001"
-    "@vue/compiler-core" "3.2.47"
-    "@vue/shared" "3.2.47"
-
-"@dcloudio/uni-mp-lark@3.0.0-alpha-3070720230316001":
-  version "3.0.0-alpha-3070720230316001"
-  resolved "https://mirrors.tencent.com/npm/@dcloudio/uni-mp-lark/-/uni-mp-lark-3.0.0-alpha-3070720230316001.tgz#55ba21ddb4283023c02ebb1cb3c91c2b6797e009"
-  integrity sha512-S72m9Lnlja1UeqkjxTWXeBTRjuwIpB0hvjQ9KfMii7+LdrRwY+F4PzOHUiwaV2LCqETl+94ZwRTAEu/ObsQVAQ==
-  dependencies:
-    "@dcloudio/uni-cli-shared" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-compiler" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-toutiao" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-vite" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-vue" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-shared" "3.0.0-alpha-3070720230316001"
-    "@vue/compiler-core" "3.2.47"
-    "@vue/shared" "3.2.47"
-
-"@dcloudio/uni-mp-qq@3.0.0-alpha-3070720230316001":
-  version "3.0.0-alpha-3070720230316001"
-  resolved "https://mirrors.tencent.com/npm/@dcloudio/uni-mp-qq/-/uni-mp-qq-3.0.0-alpha-3070720230316001.tgz#180a11e3747e2c05eb6a90626ddd2e7249aac3ed"
-  integrity sha512-v+wtuiPRrexOoRmiEXWKvu0S60pYOhESVmUYX0rFEB+kuYN7gfdTIi9xiE7ov5qzOAc4cS763rJafWuPAJQf3g==
-  dependencies:
-    "@dcloudio/uni-cli-shared" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-vite" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-vue" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-shared" "3.0.0-alpha-3070720230316001"
-    "@vue/shared" "3.2.47"
-    fs-extra "^10.0.0"
-
-"@dcloudio/uni-mp-toutiao@3.0.0-alpha-3070720230316001":
-  version "3.0.0-alpha-3070720230316001"
-  resolved "https://mirrors.tencent.com/npm/@dcloudio/uni-mp-toutiao/-/uni-mp-toutiao-3.0.0-alpha-3070720230316001.tgz#4f28c09cb696d618dcd42fd8e29119d7a064621b"
-  integrity sha512-K/JMqUxmQmkjFGTh445IAEW8kRK0ACBDl0jKWKLLZ4U1BooQ9HMNKgW+PxP/RCR8o9yBvmLcDnTNXeeDD2El/A==
-  dependencies:
-    "@dcloudio/uni-cli-shared" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-compiler" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-vite" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-mp-vue" "3.0.0-alpha-3070720230316001"
-    "@dcloudio/uni-shared" "3.0.0-alpha-3070720230316001"
-    "@vue/compiler-core" "3.2.47"
-    "@vue/shared" "3.2.47"
 
 "@dcloudio/uni-mp-vite@3.0.0-alpha-3070720230316001":
   version "3.0.0-alpha-3070720230316001"
