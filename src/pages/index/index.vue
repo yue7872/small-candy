@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ref, type Ref } from 'vue';
+  import { ref, type Ref, onMounted } from 'vue';
   import { UseRequest } from '@/composables/UseRequest';
 
   interface DailyWeather {
@@ -16,18 +16,20 @@
   }
   const title = ref('candy');
   const weatherArr: Ref<DailyWeather[]> = ref([]);
-  const targetArr: Ref<DailyWeather[]> = ref([]);
+  const targetArr: Ref<TargetWeather[]> = ref([]);
+  const showWeather = ref(false);
 
-  const showWeather = () => {
-    UseRequest('https://devapi.qweather.com/v7/weather/3d').then((res: any) => {
-      console.log(res);
-      weatherArr.value = res.daily;
-
-      UseRequest('https://devapi.qweather.com/v7/indices/3d', 'GET', { type: 3 }).then((indices: any) => {
-        targetArr.value = indices.daily;
-      });
+  onMounted(() => {
+    Promise.all([
+      UseRequest('https://devapi.qweather.com/v7/weather/3d'),
+      UseRequest('https://devapi.qweather.com/v7/indices/3d', 'GET', { type: 3 }),
+    ]).then((values: any) => {
+      weatherArr.value = values[0].daily;
+      targetArr.value = values[1].daily;
+      console.log(values);
+      showWeather.value = true;
     });
-  };
+  });
 </script>
 
 <template>
@@ -36,23 +38,14 @@
     <view class="text-area">
       <text class="title">{{ title }}</text>
     </view>
-    <view>今日天气</view>
-    <view v-if="weatherArr.length > 0">
-      <view>{{ weatherArr[0].fxDate }}</view>
-      <view>{{ weatherArr[0].textDay }}</view>
-      <view>{{ weatherArr[0].tempMin }}</view>
-      <view>{{ weatherArr[0].tempMax }}</view>
-      <view>{{ targetArr[0] }}</view>
-    </view>
-    <view>明日天气</view>
-    <view v-if="weatherArr.length > 0">
-      <view>{{ weatherArr[1].fxDate }}</view>
-      <view>{{ weatherArr[1].textDay }}</view>
-      <view>{{ weatherArr[1].tempMin }}</view>
-      <view>{{ weatherArr[1].tempMax }}</view>
-      <view>{{ targetArr[1] }}</view>
-    </view>
-    <button @click="showWeather()">click me</button>
+    <block v-if="showWeather">
+      <view v-for="(_, index) in 2" :key="index">
+        <view>{{ (index === 0 ? '今日' : '明日') + weatherArr[index].fxDate.replace(/\d{4}-/, '') }}</view>
+        <view>{{ weatherArr[index].textDay }}</view>
+        <view>{{ weatherArr[index].tempMin }} ～ {{ weatherArr[index].tempMax }}度</view>
+        <view>{{ targetArr[index].text }}</view>
+      </view>
+    </block>
   </view>
 </template>
 
