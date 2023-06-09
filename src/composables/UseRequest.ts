@@ -15,7 +15,7 @@ export const UseRequest = (
     uni.request({
       method,
       // 默认雁塔区
-      url: `${url}?key=4b5a7bf00d40495fbc49576a210d6035&location=101110113&${query}`,
+      url: `${url}?${query}`,
       success: (res: any) => {
         if (res.data.code === '200') {
           resolve(res.data)
