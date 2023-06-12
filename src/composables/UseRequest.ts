@@ -19,9 +19,10 @@ export const UseRequest = (
       success: (res: any) => {
         if (res.data.code === '200') {
           resolve(res.data)
+        } else {
+          reject(res.data)
         }
       },
-
       fail: (err) => {
         reject(err)
       }

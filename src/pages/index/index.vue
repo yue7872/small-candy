@@ -9,28 +9,43 @@
     tempMin: number;
     tempMax: number;
     iconDay: string;
+    precip: number;
   }
   interface TempNow {
     temp: string;
     text: string;
     obsTime: string;
   }
-  const title = ref('candy');
+
   const weatherArr: Ref<DailyWeather[]> = ref([]);
   const suggestion: Ref<string[]> = ref([]);
   const tempNow: Ref<TempNow> = ref({} as TempNow);
+  const weatherRecent: Ref<string> = ref('');
 
   onMounted(() => {
     Promise.all([
       UseRequest('https://devapi.qweather.com/v7/weather/3d', 'GET', weatherHeader),
       UseRequest('https://devapi.qweather.com/v7/indices/3d', 'GET', { type: 3, ...weatherHeader }),
       UseRequest('https://devapi.qweather.com/v7/weather/now', 'GET', weatherHeader),
-    ]).then((values: any) => {
-      weatherArr.value = values[0].daily;
-      suggestion.value = [values[1].daily[0].text, values[1].daily[1].text];
-      tempNow.value = { temp: values[2].now.temp, text: values[2].now.text, obsTime: values[2].now.obsTime };
-      console.log(values);
-    });
+      UseRequest('https://devapi.qweather.com/v7/minutely/5m', 'GET', { ...weatherHeader, location: '108.87,34.21' }),
+    ])
+      .then(([weatherRes, suggestionRes, nowRes, recentRes]) => {
+        weatherArr.value = (weatherRes as any).daily;
+        suggestion.value = (suggestionRes as any).daily.map((item: any) => {
+          return item.text;
+        });
+
+        const { temp, text, obsTime } = (nowRes as any).now;
+        tempNow.value = {
+          temp,
+          text,
+          obsTime,
+        };
+        weatherRecent.value = (recentRes as any).summary;
+      })
+      .catch(err => {
+        console.log(err);
+      });
   });
 </script>
 
@@ -38,17 +53,10 @@
   <view class="content">
     <image class="logo" src="/static/logo.png" />
     <view class="text-area">
-      <text class="title">{{ title }}</text>
+      <text class="title">{{ new Date().getMonth() + 1 + '月' + new Date().getDate() + '日' }}</text>
     </view>
-    <view v-if="tempNow.temp"
-      >{{
-        tempNow.obsTime
-          .replace(/\d{4}-/, '')
-          .replace('T', ' ')
-          .replace('+08:00', '')
-      }}
-      当前：{{ tempNow.temp }}度</view
-    >
+    <view v-if="tempNow.temp"> 当前：{{ tempNow.temp }}度 </view>
+    <view v-if="weatherRecent">{{ weatherRecent }}</view>
     <block v-if="weatherArr.length > 0 && suggestion.length > 0">
       <view v-for="(_, index) in 2" :key="index">
         <view>{{ index === 0 ? '今日' : '明日' }}</view>
@@ -57,7 +65,7 @@
           <text :class="`qi-${weatherArr[index].iconDay}`"></text>
         </view>
         <view>{{ weatherArr[index].tempMin }} ～ {{ weatherArr[index].tempMax }}度</view>
-        <view>{{ suggestion[index] }}</view>
+        <view>{{ suggestion[index] }} {{ weatherArr[index].precip > 0 ? '可能有雨，记得带伞喔' : '' }}</view>
       </view>
     </block>
   </view>
