@@ -2,7 +2,6 @@
   import { ref, type Ref, onMounted } from 'vue';
   import { UseRequest } from '@/composables/UseRequest';
   import { weatherHeader } from '@/config/config';
-  import { OpenAi } from '@/composables/OpenAi';
   import 'qweather-icons/font/qweather-icons.css';
 
   interface DailyWeather {
@@ -26,7 +25,6 @@
       UseRequest('https://devapi.qweather.com/v7/weather/3d', 'GET', weatherHeader),
       UseRequest('https://devapi.qweather.com/v7/indices/3d', 'GET', { type: 3, ...weatherHeader }),
       UseRequest('https://devapi.qweather.com/v7/weather/now', 'GET', weatherHeader),
-      // OpenAi(),
     ]).then((values: any) => {
       weatherArr.value = values[0].daily;
       suggestion.value = [values[1].daily[0].text, values[1].daily[1].text];
