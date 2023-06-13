@@ -1,12 +1,6 @@
 {
 	"pages": [
 		{
-			"path": "pages/index/teachPlan",
-			"style": {
-				"navigationBarTitleText": "教案生成"
-			}
-		},
-		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "天气"

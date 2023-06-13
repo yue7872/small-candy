@@ -8,5 +8,5 @@ export const weatherHeader = {
 
 export const openaiHeader = {
   'Content-Type': 'application/json',
-  'Authorization': 'Bearer sk-xxx'
+  'Authorization': 'Bearer your-openai-token'
 }
